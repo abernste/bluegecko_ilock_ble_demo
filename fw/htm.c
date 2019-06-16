@@ -210,6 +210,9 @@ void htmTemperatureMeasure(void)
   /* Create the temperature measurement characteristic in htmTempBuffer and store its length */
   length = htmProcMsg(htmTempBuffer);
 
+  // Each temperatue request packet arrives here
+  // appUiLedUnlockAlert();
+
   /* Send indication of the temperature in htmTempBuffer to all "listening" clients.
    * This enables the Health Thermometer in the Blue Gecko app to display the temperature.
    *  0xFF as connection ID will send indications to all connections. */
