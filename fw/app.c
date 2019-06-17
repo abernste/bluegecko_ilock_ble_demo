@@ -153,15 +153,25 @@ void appHandleEvents(struct gecko_cmd_packet *evt)
 
     /* Indicates the changed value of CCC or received characteristic confirmation */
     case gecko_evt_gatt_server_characteristic_status_id:
-      /* Check if changed client char config is for the temperature measurement */
-      if ((gattdb_temperature_measurement == evt->data.evt_gatt_server_attribute_value.attribute)
-          && (evt->data.evt_gatt_server_characteristic_status.status_flags == 0x01)) {
-        /* Call HTM temperature characteristic status changed callback */
-        htmTemperatureCharStatusChange(
-          evt->data.evt_gatt_server_characteristic_status.connection,
-          evt->data.evt_gatt_server_characteristic_status.client_config_flags);
-      }
-      break;
+    if (evt->data.evt_gatt_server_characteristic_status.status_flags == 0x01)
+    {
+        switch (evt->data.evt_gatt_server_attribute_value.attribute)
+        {
+            case gattdb_temperature_measurement:
+            /* Call HTM temperature characteristic status changed callback */
+            htmTemperatureCharStatusChange(evt->data.evt_gatt_server_characteristic_status.connection, evt->data.evt_gatt_server_characteristic_status.client_config_flags);
+            break;
+
+            case gattdb_ilock_lock_request:
+            appUiLedLockAlert();
+            break;
+
+            case gattdb_ilock_unlock_request:
+            appUiLedUnlockAlert();
+            break;
+        }
+    }          
+    break;
 
     /* Software Timer event */
     case gecko_evt_hardware_soft_timer_id:
