@@ -701,3 +701,5 @@ test_data/
 
 **/GNU ARM v7.2.1 - Default/
 imported_project_report.html
+
+*.bak

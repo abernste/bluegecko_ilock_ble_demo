@@ -264,11 +264,11 @@ public class SelectDeviceDialog extends DialogFragment implements Discovery.Blue
             startDiscovery(discovery, clearCachedDiscoveries);
         } else {
             startDiscovery(discovery, clearCachedDiscoveries);
-        }
+        }` `
     }
 
     private void startDiscovery(Discovery discovery, boolean clearCachedDiscoveries){
-        discovery.startDiscovery(clearCachedDiscoveries, GattService.HealthThermometer);
+        discovery.startDiscovery(clearCachedDiscoveries, GattService.HealthThermometer, GattService.ProprietaryIntelLockService);
     }
 
     @Override

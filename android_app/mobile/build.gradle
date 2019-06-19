@@ -1,18 +1,25 @@
 //apply plugin: 'android-sdk-manager'
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
 
 repositories {
     maven { url 'https://maven.fabric.io/public' }
 }
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion '25.0.3'
+    compileSdkVersion 24
+    buildToolsVersion '28.0.3'
 
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 22
+        android.defaultConfig.javaCompileOptions.annotationProcessorOptions.includeCompileClasspath = true
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
     }
 
     buildTypes {
@@ -29,13 +36,17 @@ android {
         }
     }
 
+    flavorDimensions "version"
+
     productFlavors {
         blueGecko {
+            dimension "version"
             applicationId "com.siliconlabs.bledemo"
             versionCode 9
             versionName "1.5.0"
         }
         wirelessGecko {
+            dimension "version"
             applicationId "com.siliconlabs.wirelessgecko"
             versionCode 3
             versionName "1.1.80"
@@ -45,14 +56,14 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    wearApp project(':wear')
-    compile 'com.android.support:appcompat-v7:22.2.1'
+    //wearApp project(':wear')
+    compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
     compile 'com.google.android.gms:play-services-base:8.4.0'
     compile 'com.google.android.gms:play-services-wearable:8.4.0'
     compile 'com.android.support:recyclerview-v7:22.2.1'
     compile 'com.android.support:design:22.2.1'
     compile 'com.github.frankiesardo:auto-parcel:0.3'
-    apt 'com.github.frankiesardo:auto-parcel-processor:0.3'
+    annotationProcessor 'com.github.frankiesardo:auto-parcel-processor:0.3'
     compile 'com.jakewharton:butterknife:6.1.0'
     compile 'com.jakewharton.timber:timber:3.0.2'
     compile project(':libraries:materialdesign')

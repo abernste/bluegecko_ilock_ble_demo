@@ -86,7 +86,6 @@ public class BLEUtils {
 
         return false;
     }
-
     public static boolean SetNotificationForCharacteristic(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, Notifications value) {
         return SetNotificationForCharacteristic(gatt, characteristic, CLIENT_CHARACTERISTIC_CONFIG_UUID, value);
     }

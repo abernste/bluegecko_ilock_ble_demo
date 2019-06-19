@@ -39,7 +39,11 @@ public enum GattService {
     ProprietaryLightService("63f596e4-b583-4078-bfc3-b04225378713", "custom.type",
                  GattCharacteristic.Light,
                  GattCharacteristic.TriggerSource,
-                 GattCharacteristic.SourceAddress);
+                 GattCharacteristic.SourceAddress),
+
+    ProprietaryIntelLockService("06ce289c-d99a-4efb-a9f4-b836cfea3d8c", "custom.type",
+                            GattCharacteristic.Lock,
+                            GattCharacteristic.Unlock);
 
 
     private static final String FORMAT_STR = "%08x-0000-1000-8000-00805f9b34fb";

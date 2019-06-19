@@ -55,6 +55,12 @@ public class HealthThermometerActivity extends BaseActivity {
             List<BluetoothGattService> services = gatt.getServices();
 
             BLEUtils.SetNotificationForCharacteristic(gatt, GattService.HealthThermometer, GattCharacteristic.Temperature, BLEUtils.Notifications.INDICATE);
+            boolean written = BLEUtils.SetNotificationForCharacteristic(gatt, GattService.ProprietaryIntelLockService, GattCharacteristic.Lock, BLEUtils.Notifications.INDICATE);
+            if (written == false)
+            {
+                List<BluetoothGattService> services2 = gatt.getServices();
+            }
+
         }
 
         @Override
@@ -156,9 +162,8 @@ public class HealthThermometerActivity extends BaseActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 if (service != null && service.getConnectedGatt() != null)
-                    BLEUtils.SetNotificationForCharacteristic(service.getConnectedGatt(), GattService.HealthThermometer, GattCharacteristic.Temperature,
-                                                              BLEUtils.Notifications.DISABLED);
-                
+                    BLEUtils.SetNotificationForCharacteristic(service.getConnectedGatt(), GattService.HealthThermometer, GattCharacteristic.Temperature, BLEUtils.Notifications.DISABLED);
+                    //BLEUtils.SetNotificationForCharacteristic(service.getConnectedGatt(), GattService.ProprietaryIntelLockService, GattCharacteristic.Lock, BLEUtils.Notifications.INDICATE);
                 finish();
                 return true;
             default:
