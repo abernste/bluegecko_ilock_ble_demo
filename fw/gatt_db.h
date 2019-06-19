@@ -18,10 +18,10 @@ extern const struct bg_gattdb_def bg_gattdb_data;
 #define gattdb_client_support_features          8
 #define gattdb_device_name                     11
 #define gattdb_temperature_measurement         19
-#define gattdb_ilock_lock_request              20
-#define gattdb_ilock_unlock_request            21
 #define gattdb_MeasInt                         27
 #define gattdb_alert_level                     30
 #define gattdb_ota_control                     33
+#define gattdb_intellock_lock                  36
+#define gattdb_intellock_unlock                39
 
 #endif

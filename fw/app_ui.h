@@ -44,8 +44,8 @@ extern "C" {
  **************************************************************************************************/
 /* Text definitions*/
 /* Must match length of APP_DEVNAME_DEFAULT after printf formatting */
-#define APP_DEVNAME                  "BG%05u"
-#define APP_DEVNAME_DEFAULT          "BG00000"
+#define APP_DEVNAME                  "Gecko%05u"
+#define APP_DEVNAME_DEFAULT          "Gecko00000"
 /* subtract 1 because of terminating NULL character */
 #define APP_DEVNAME_LEN              (sizeof(APP_DEVNAME_DEFAULT) - 1)
 

@@ -144,7 +144,8 @@ static struct appUiLedSeqReq appUiLedSeqHighAlertReq =
 { appUiLedSeqHighAlert, COUNTOF(appUiLedSeqHighAlert) };
 
 /** ilock - lock LED sequence and request. */
-static struct appUiLedStates appUiLedSeqAccessLockAllert[] = { { 0, 0 } };
+static struct appUiLedStates appUiLedSeqAccessLockAllert[] = { { 1, 0 }, { 1, 0 },
+                                                               { 0, 1 }, { 0, 1 } };
 static struct appUiLedSeqReq appUiLedSeqAccessLockAlertReq = { appUiLedSeqAccessLockAllert, COUNTOF(appUiLedSeqAccessLockAllert) };
 
 /** ilock - unlock LED sequence and request. */

@@ -158,17 +158,17 @@ void appHandleEvents(struct gecko_cmd_packet *evt)
         switch (evt->data.evt_gatt_server_attribute_value.attribute)
         {
             case gattdb_temperature_measurement:
-            /* Call HTM temperature characteristic status changed callback */
-            htmTemperatureCharStatusChange(evt->data.evt_gatt_server_characteristic_status.connection, evt->data.evt_gatt_server_characteristic_status.client_config_flags);
-            break;
+                /* Call HTM temperature characteristic status changed callback */
+                htmTemperatureCharStatusChange(evt->data.evt_gatt_server_characteristic_status.connection, evt->data.evt_gatt_server_characteristic_status.client_config_flags);
+                break;
 
-            case gattdb_ilock_lock_request:
-            appUiLedLockAlert();
-            break;
+            case gattdb_intellock_lock:
+                appUiLedLockAlert();
+                break;
 
-            case gattdb_ilock_unlock_request:
-            appUiLedUnlockAlert();
-            break;
+            case gattdb_intellock_unlock:
+                appUiLedUnlockAlert();
+                break;
         }
     }          
     break;
