@@ -28,11 +28,16 @@ public class SampleGattAttributes {
 
     static {
         // Sample Services.
-        attributes.put("0000180d-0000-1000-8000-00805f9b34fb", "Heart Rate Service");
+        attributes.put("00001800-0000-1000-8000-00805f9b34fb", "Generic Access Service");
         attributes.put("0000180a-0000-1000-8000-00805f9b34fb", "Device Information Service");
+        attributes.put("06ce289c-d99a-4efb-a9f4-b836cfea3d8c", "IntelLock Service");
+
         // Sample Characteristics.
-        attributes.put(HEART_RATE_MEASUREMENT, "Heart Rate Measurement");
+        attributes.put("00002a00-0000-1000-8000-00805f9b34fb", "Device Name");
+        attributes.put("00002a01-0000-1000-8000-00805f9b34fb", "Appearance");
         attributes.put("00002a29-0000-1000-8000-00805f9b34fb", "Manufacturer Name String");
+        attributes.put("22e8db8c-2c01-4345-9b1f-eeb7be30fc5a", "Lock");
+        attributes.put("d8c2285e-9308-4d6a-8986-287a5dd951a0", "Unlock");
     }
 
     public static String lookup(String uuid, String defaultName) {
