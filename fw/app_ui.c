@@ -144,12 +144,13 @@ static struct appUiLedSeqReq appUiLedSeqHighAlertReq =
 { appUiLedSeqHighAlert, COUNTOF(appUiLedSeqHighAlert) };
 
 /** ilock - lock LED sequence and request. */
-static struct appUiLedStates appUiLedSeqAccessLockAllert[] = { { 1, 0 }, { 1, 0 },
-                                                               { 0, 1 }, { 0, 1 } };
+static struct appUiLedStates appUiLedSeqAccessLockAllert[] = { { 1, 1 }};
+
 static struct appUiLedSeqReq appUiLedSeqAccessLockAlertReq = { appUiLedSeqAccessLockAllert, COUNTOF(appUiLedSeqAccessLockAllert) };
 
 /** ilock - unlock LED sequence and request. */
-static struct appUiLedStates appUiLedSeqAccessUnlockAlert[] = { { 1, 1 }};
+static struct appUiLedStates appUiLedSeqAccessUnlockAlert[] = { { 1, 0 }, { 1, 0 },
+                                                                { 0, 1 }, { 0, 1 } };
 static struct appUiLedSeqReq appUiLedSeqAccessUnlockAlertReq = { appUiLedSeqAccessUnlockAlert, COUNTOF(appUiLedSeqAccessUnlockAlert) };
 
 /** Request a sequence for driving the LEDs. */
